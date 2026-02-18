@@ -23,11 +23,12 @@ Na guia Window, selecionar "Package Manager", setar a pesquisa para “Unity Reg
 ## Configuração Open XR
 1. Instalar XR Plugin Management em "Project Settings"
 2. Localizar as abas "Desktop" e " Android" dentro do plugin instalado
--   2.1 Adicionar no campo "Enabled Interaction Profiles" as opções:
+-   2.1 Setar "OpenXR"
+-   2.2 Adicionar no campo "Enabled Interaction Profiles" as opções:
      - Hand Interaction Profile
      - Meta Quest Touch Pro Controller Profile
      - Oculus Touch Controller Profile
--   2.2 Setar no campo "OpenXR Feature Groups" as opções:
+-   2.3 Setar no campo "OpenXR Feature Groups" as opções:
      - Hand Interaction Poses
      - Hand Tracking Subsystem
      - Meta Hand Tracking Aim
