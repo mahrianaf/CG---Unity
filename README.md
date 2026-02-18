@@ -5,7 +5,7 @@ O projeto atual tem a finalidade de criar um ambiente interativo e imersivo comp
 O contexto da aplicação é sobre um Capitão que atraca numa ilha para resgatar o baú do tesouro onde determina a bandeira, porém 
 o baú só se torna visível quando o usuário clica no botão, entretanto, após isso a tripulação de esqueletos da ilha se prepara 
 para atacar e defender o baú cobiçado, logo, cabe ao usuário disparar contra a tripulação e proteger o Capitão.
-O desenvolvimento desse projeto envolveu a importação de assets para construção do tema, elaboração de scripts para atriuir 
+O desenvolvimento desse projeto envolveu a importação de assets para construção do tema, elaboração de scripts para atribuir 
 interação e configuração da ferramenta XR Interaction Toolkit para criar a imersão através da tecnologia VR.
 
 ## Instalação Unity
