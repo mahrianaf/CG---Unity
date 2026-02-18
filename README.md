@@ -16,6 +16,7 @@ interação e configuração da ferramenta XR Interaction Toolkit para criar a i
 - Skybox: https://assetstore.unity.com/
 
 ## Instalação de Pacotes
+Na guia Window, selecionar "Package Manager", setar a pesquisa para “Unity Registry” e instalar os pacotes:
 - XR Hands
 - XR Interaction Toolkit
 
