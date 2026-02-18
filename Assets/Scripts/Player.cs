@@ -1,49 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem; 
 
 public class Player : MonoBehaviour
 {
-    //public float forceMultiplier= 3f;
-    //public float maximumVelocity= 3f;
-    //private Rigidbody rb;
+    public float velocidade = 5f;
+    private Rigidbody rb;
+    public InputActionProperty moveAction; 
 
-    // Start is called before the first frame update
     void Start()
     {
-        //rb=GetComponent<Rigidbody>(); //Cashing
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
-    public float velocidade = 5f;
     void Update()
     {
+        // Teclado (WASD / Setas)
+        float moveHorizontal = Input.GetAxis("Horizontal"); 
+        float moveVertical = Input.GetAxis("Vertical");     
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        // VR (Quest 3)
+        Vector2 inputVR = moveAction.action.ReadValue<Vector2>();
+        if (inputVR != Vector2.zero)
         {
-            transform.Translate(Vector3.right * velocidade * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector3.left * velocidade * Time.deltaTime);
+            moveHorizontal = inputVR.x;
+            moveVertical = inputVR.y;
         }
 
+        // Criar a direção
+        Vector3 direcao = (transform.forward * moveVertical) + (transform.right * moveHorizontal);
+        
+        rb.velocity = new Vector3(direcao.x * velocidade, rb.velocity.y, direcao.z * velocidade);
     }
 
-    /* Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        var horizontalInput= Input.GetAxis("Horizontal"); 
-
-        if(rb.velocity.magnitude <= maximumVelocity){
-            rb.AddForce(new Vector3(horizontalInput*forceMultiplier,0,0));
-        }
-    }*/
-
-    private void OnCollisionEnter (Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Hazard"))
+        Hazard esqueleto = collision.gameObject.GetComponent<Hazard>();
+        if (esqueleto != null)
         {
-            Destroy(gameObject);
+            esqueleto.TomarDano();
         }
     }
 }

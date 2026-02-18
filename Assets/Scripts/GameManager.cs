@@ -6,29 +6,55 @@ public class GameManager : MonoBehaviour
 {
     public GameObject hazardPrefab;
     public int maxHazardsToSpawn = 2;
-    void Start()
+    
+    [Header("Configuração do Alerta")]
+    public GameObject objetoQueSobe; 
+    public float alturaYFinal = 5f;  
+    public float velocidadeSubida = 2f;
+    public float delayAntesDaChuva = 2f; 
+
+    private bool estaAtivo = false;
+
+    public void AtivarChuva()
     {
-        StartCoroutine(SpawnHazards());
+        if (!estaAtivo) 
+        {
+            estaAtivo = true;
+            StartCoroutine(SequenciaDeAtaque());
+        }
     }
 
-    private IEnumerator SpawnHazards()
+    private IEnumerator SequenciaDeAtaque()
     {
-        //Numero de caixas despencando junto
-        var hazardToSpawn = Random.Range(1,maxHazardsToSpawn);
-
-        for(int i=0; i< hazardToSpawn; i++)
+        if (objetoQueSobe != null)
         {
-            var x= Random.Range(-7,7); 
-            var drag= Random.Range(0f,2f);
+            Vector3 posicaoAlvo = new Vector3(objetoQueSobe.transform.position.x, alturaYFinal, objetoQueSobe.transform.position.z);
             
-            //Faz o bloco despencar de qualquer posicao entre -7 e 7
-            var hazard= Instantiate(hazardPrefab, new Vector3(x,11,0), Quaternion.identity);
-            hazard.GetComponent<Rigidbody>().drag=drag; //Resistencia do ar varia entre 0 e 2 
+            // Sobe suavemente até a altura desejada
+            while (Vector3.Distance(objetoQueSobe.transform.position, posicaoAlvo) > 0.01f)
+            {
+                objetoQueSobe.transform.position = Vector3.MoveTowards(objetoQueSobe.transform.position, posicaoAlvo, velocidadeSubida * Time.deltaTime);
+                yield return null; //Espera o próximo frame
+            }
         }
 
-        var timeToWait= Random.Range(0.5f, 1.5f);
-        yield return new WaitForSeconds(timeToWait);
-        //Chama a funcao recursivamente (varios blocos despencam em sequencia)
-        yield return SpawnHazards();
+        yield return new WaitForSeconds(delayAntesDaChuva);
+
+        StartCoroutine(SpawnHazards());
+    }
+    private IEnumerator SpawnHazards(){
+
+        //var hazardToSpawn = Random.Range(1, maxHazardsToSpawn + 1);
+        
+        for (int i = 0, x=-6; i < 5; i++, x=x+3)
+        {
+            //var x = Random.Range(-8, 8);
+            Instantiate(hazardPrefab, new Vector3(x, 11, 2), hazardPrefab.transform.rotation);
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+        }
+
+        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+        
+        //if (estaAtivo) yield return SpawnHazards();
     }
 }

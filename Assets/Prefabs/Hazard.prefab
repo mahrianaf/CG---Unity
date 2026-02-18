@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2773638843317339472}
   - component: {fileID: 3244585671679564959}
   - component: {fileID: 1941891923759769377}
-  - component: {fileID: -5185554672364205024}
   m_Layer: 0
   m_Name: Hazard
   m_TagString: Hazard
@@ -29,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6229222774461204515}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.0031270809, y: 0.66602206, z: 0.7459018, w: 0.005941673}
   m_LocalPosition: {x: 0, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -83.52, y: 1.65, z: 177.614}
 --- !u!33 &5898446884268948920
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6229222774461204515}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -5273605855520333666, guid: aad06239ad9dc774585169a14c2833e0, type: 3}
 --- !u!23 &2773638843317339472
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c40d83e060f776848a520f2714494748, type: 2}
+  - {fileID: 2100000, guid: 5b77e3aaa1a0a304585b0c7aad960cf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,15 +133,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-5185554672364205024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6229222774461204515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa708188d6b9f8d43a61fe6962f5e003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

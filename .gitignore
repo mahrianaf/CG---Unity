@@ -5,9 +5,15 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]serSettings/
+# Ignorar a pasta de Samples do Unity
+/[Aa]ssets/Samples/
 
+# Ignorar o Kit Pirata (Nov 2023)
+/[Aa]ssets/Pirate Kit - Nov 2023/
 .vscode/
 .idea/
 *.csproj
 *.sln
 *.user
+*.blend
+*.blend.meta
