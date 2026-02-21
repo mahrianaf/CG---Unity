@@ -21,13 +21,17 @@ public class GameManager : MonoBehaviour
         {
             estaAtivo = true;
             StartCoroutine(SequenciaDeAtaque());
+
+            Debug.Log("AtivarChuva depois do !estaativo");
         }
     }
 
     private IEnumerator SequenciaDeAtaque()
     {
-        if (objetoQueSobe != null)
+        /*if (objetoQueSobe != null)
         {
+            Debug.Log("Objeto subindo...");
+
             Vector3 posicaoAlvo = new Vector3(objetoQueSobe.transform.position.x, alturaYFinal, objetoQueSobe.transform.position.z);
             
             // Sobe suavemente até a altura desejada
@@ -35,8 +39,10 @@ public class GameManager : MonoBehaviour
             {
                 objetoQueSobe.transform.position = Vector3.MoveTowards(objetoQueSobe.transform.position, posicaoAlvo, velocidadeSubida * Time.deltaTime);
                 yield return null; //Espera o próximo frame
+
+                Debug.Log("Objeto subindo while");
             }
-        }
+        }*/
 
         yield return new WaitForSeconds(delayAntesDaChuva);
 

@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 07ff26463f7ed844398ed6b3b5829840
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - esqueletoPrefab: {fileID: 8050479084011716092, guid: dbf72acc093b9914181247757319a69c, type: 3}
+  - localDeSpawn: {fileID: 3341031744885897149, guid: f65cd8ef114fae545b3e7c127d1fcc6f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

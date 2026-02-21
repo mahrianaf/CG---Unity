@@ -3,7 +3,9 @@ guid: 3e77d19d2eb806a4e868b0c58d2e9a75
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hazardPrefab: {fileID: 8050479084011716092, guid: dbf72acc093b9914181247757319a69c, type: 3}
+  - objetoQueSobe: {fileID: 7089931717406489200, guid: 0b91103033ab1414d9dbcb45aa896052, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
